@@ -1,0 +1,16 @@
+{% extends 'posts/post_base.html' %}
+{% block post_content %}
+    <div class="container">
+     <h1>Here are the posts for @{{ user_username }} !</h1>
+     <p>Total Post Count : {{ post_all.count }}</p>
+    <ul>
+        {% for post in post_all.all %}
+            <li>
+                <h3>{{ post.message_html | safe }}<br></h3>
+                <p>Group : <a href="{% url 'groups:group_single' slug=post.group.slug %}">{{ post.group }}</a> created on : {{ post.created_at }} <br></p>
+            </li>
+        {% endfor %}
+
+    </ul>
+    </div>
+{% endblock %}

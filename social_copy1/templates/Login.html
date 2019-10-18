@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% block css_content %}
+     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block content %}
+     <div class="box">
+            <h2>Login</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="inputBox">
+                    <input type="text" name="username" required="">
+                    <label for="username">username</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" required="">
+                    <label for="password">password</label>
+                </div>
+                <input type="submit" name="" value="Login">
+            </form>
+        </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+    <div class="jumbotron">
+     {% if registered %}
+         <h2> Thanks for registering You can now login.</h2>
+     {% else %}
+         <h1>Sign Up Here !!!</h1>
+         <form method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+            {% bootstrap_form user_form %}
+            {% bootstrap_form profile_form %}
+         <input type="submit" name="Sign Up" class="btn btn-default">
+         </form>
+     {% endif %}
+    </div>
+{% endblock %}
